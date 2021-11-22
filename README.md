@@ -32,7 +32,6 @@ As you can see from the flowchart above the logic has been based around the four
 The features included in this programme are listed in the main menu and they can be seen below:
 
 ![](assets/images/main_menu.png)
-
 ### Retrieve all models:
 - From the main menu there is an option to Retrieve All Models, once the user has selected this all of the models will be printed to the terminal.
 
