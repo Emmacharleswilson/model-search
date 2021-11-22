@@ -17,19 +17,19 @@ MODELS_WORKSHEET = SHEET.worksheet('models')
 def retrieve_records():
     """
     Function to retrieve all records found
-    in the contacts list spreadhseet.
+    in the models list spreadhseet.
     """
     return MODELS_WORKSHEET.get_all_records()
 
 
 def retrieve_all_models():
     """
-    Function to retrieve full list of contacts
+    Function to retrieve full list of models
     """
-    all_contacts = retrieve_records()
-    print("\nNow retrieving all of your contacts...\n")
-    for contact in all_contacts:
-        print_records_in_loop(contact)
+    all_models = retrieve_records()
+    print("\nNow retrieving all of your models...\n")
+    for model in all_models:
+        print_records_in_loop(model)
 
 
 def print_records_in_loop(record):
@@ -38,20 +38,15 @@ def print_records_in_loop(record):
     as a parameter and print the details in a
     list of key: values.
     """
-    print("Printing record...")
     for key, value in record.items():
-        if key == 'phone_number':
-            print(f"{key}: {value}")
-        else:
-            print(f"{key}: {value}")
+        print(f"{key}: {value}")
     print("\n")
 
 
-def file_creation():
-    pass
-
-
 def show_menu():
+    """
+    Function to display menu items to user
+    """
     print("\nMain menu")
     print("-----------------")
     print("1) See all Models")
@@ -61,6 +56,12 @@ def show_menu():
 
 
 def menu():
+    """
+    User selects which task they would like to do, uses their input and runs
+    elif loop to trigger the next process.
+    If an invalid choice is input then the programme
+    will alert user and ask for another choice.
+    """
     while True:
         show_menu()
         choice = input('Enter your choice: ').lower()
@@ -76,9 +77,9 @@ def menu():
             print(f'Not a correct choice: <{choice}>,try again')
 
 
+def file_creation():
+    pass
+
+
 if __name__ == '__main__':
     menu()
-
-
-
-
