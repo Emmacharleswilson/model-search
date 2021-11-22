@@ -68,13 +68,28 @@ def menu():
         if choice == '1':
             retrieve_all_models()
         elif choice == '2':
-            file_creation()
+            add_new_model()
         elif choice == '3':
             file_creation()
         elif choice == '4':
             return
         else:
             print(f'Not a correct choice: <{choice}>,try again')
+
+
+def add_new_model():
+    """
+    Function used to add a new model
+    """
+    fname_str = input("Please enter model's first name: ")
+    lname_str = input("Please enter model's last name: ")
+    height_int = input("Please enter model's height in cm: ")
+    hair_colour_str = input("Please enter model's hair colour: ")
+    age_int = input("Please enter model's age: ")
+    gender_str = input("Please enter model's gender: ")
+
+    print(f"The data you provided is {fname_str}{lname_str}{height_int},\
+    {hair_colour_str}{age_int}{gender_str}")
 
 
 def file_creation():
