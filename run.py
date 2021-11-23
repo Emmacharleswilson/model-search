@@ -87,18 +87,27 @@ def menu():
             print(f'Not a correct choice: <{choice}>,try again')
 
 
+
 def add_new_model():
     """
     Allows user to add new model information
     """
-    print("Please enter the information needed")
-    first_name = pyip.inputStr('*First Name: ').capitalize()
-    last_name = pyip.inputStr('*Last Name: ').capitalize()
-    height = pyip.inputInt('*Height: ')
-    hair_colour = pyip.inputStr('*Hair Colour: ').capitalize()
-    age = pyip.inputInt('*Age: ')
-    gender = pyip.inputStr('*Gender: ').capitalize()
+    first_name = str(pyip.inputStr('*First Name: ').capitalize())
+    last_name = str(pyip.inputStr('*Last Name: ').capitalize())
+    print("Please enter height in cm")
+    height = int(pyip.inputInt('*Height: '))
+    hair_colour = str(pyip.inputStr('*Hair Colour: ').capitalize())
+    age = int(pyip.inputInt('*Age: '))
+    gender = str(pyip.inputStr('*Gender: ').capitalize())
+
+    new_model_info = [
+        first_name, last_name, str(height),
+        hair_colour, str(age), gender
+        ]
+    
+    print(new_model_info)
 
 
 if __name__ == '__main__':
     menu()
+
