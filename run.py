@@ -1,5 +1,6 @@
 import gspread
 from google.oauth2.service_account import Credentials
+import pyinputplus as pyip
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -12,6 +13,15 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('model_search')
 MODELS_WORKSHEET = SHEET.worksheet('models')
+
+
+def user_response(message, min_value, max_value):
+    """
+    Function used throughout the programme
+    to validate users input from a list of choices.
+    """
+    input = pyip.inputInt(prompt=message, min=min_value, max=max_value)
+    return input
 
 
 def retrieve_records():
@@ -79,21 +89,15 @@ def menu():
 
 def add_new_model():
     """
-    Function used to add a new model
+    Allows user to add new model information
     """
-    fname_str = input("Please enter model's first name: ")
-    lname_str = input("Please enter model's last name: ")
-    height_int = input("Please enter model's height in cm: ")
-    hair_colour_str = input("Please enter model's hair colour: ")
-    age_int = input("Please enter model's age: ")
-    gender_str = input("Please enter model's gender: ")
-
-    print(f"The data you provided is {fname_str}{lname_str}{height_int},\
-    {hair_colour_str}{age_int}{gender_str}")
-
-
-def file_creation():
-    pass
+    print("Please enter the information needed")
+    first_name = pyip.inputStr('*First Name: ').capitalize()
+    last_name = pyip.inputStr('*Last Name: ').capitalize()
+    height = pyip.inputInt('*Height: ')
+    hair_colour = pyip.inputStr('*Hair Colour: ').capitalize()
+    age = pyip.inputInt('*Age: ')
+    gender = pyip.inputStr('*Gender: ').capitalize()
 
 
 if __name__ == '__main__':
