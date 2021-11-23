@@ -87,7 +87,6 @@ def menu():
             print(f'Not a correct choice: <{choice}>,try again')
 
 
-
 def add_new_model():
     """
     Allows user to add new model information
@@ -104,10 +103,12 @@ def add_new_model():
         first_name, last_name, str(height),
         hair_colour, str(age), gender
         ]
-    
-    print(new_model_info)
+
+    print(f'The data you have entered is: <{new_model_info}>')
+
+    MODELS_WORKSHEET.append_row(new_model_info)
+    print("worksheet updated sucessfully")
 
 
 if __name__ == '__main__':
     menu()
-
