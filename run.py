@@ -91,23 +91,41 @@ def add_new_model():
     """
     Allows user to add new model information
     """
-    first_name = str(pyip.inputStr('*First Name: ').capitalize())
-    last_name = str(pyip.inputStr('*Last Name: ').capitalize())
-    print("Please enter height in cm")
+    while True:
+        first_name = pyip.inputStr('*First Name: ')
+        if first_name.isalpha():
+            break
+        else:
+            print("Enter letters only")
+    while True:
+        last_name = pyip.inputStr('*Last Name: ')
+        if last_name.isalpha():
+            break
+        else:
+            print("Enter letters only")
+    print("Please enter height in cm, for example 123")
     height = int(pyip.inputInt('*Height: '))
-    hair_colour = str(pyip.inputStr('*Hair Colour: ').capitalize())
+    while True:
+        hair_colour = pyip.inputStr('*Hair Colour: ')
+        if hair_colour.isalpha():
+            break
+        else:
+            print("Enter letters only")
     age = int(pyip.inputInt('*Age: '))
-    gender = str(pyip.inputStr('*Gender: ').capitalize())
+    gender = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
 
     new_model_info = [
         first_name, last_name, str(height),
         hair_colour, str(age), gender
         ]
-
     print(f'The data you have entered is: <{new_model_info}>')
-
-    MODELS_WORKSHEET.append_row(new_model_info)
-    print("worksheet updated sucessfully")
+    print("\nWould you like to save?\n")
+    save = pyip.inputMenu(['Yes', 'No'], numbered=True)
+    if save == 'Yes':
+        MODELS_WORKSHEET.append_row(new_model_info)
+        print("\nworksheet updated sucessfully")
+    else:
+        print("worksheet no updated")
 
 
 if __name__ == '__main__':
