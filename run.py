@@ -143,6 +143,10 @@ def search(choice):
     # Filter function used to search within the worksheet
     print(choice)
     print(search_by)
+    values = MODELS_WORKSHEET.findall(search_by)
+    for r in values:
+        print(', '.join(MODELS_WORKSHEET.row_values(r.row)))
+    
     """
     result = list(filter(
         lambda record: record[choice] == search_by or
@@ -172,7 +176,7 @@ def search_models():
 6. By Gender\n")
     while True:
         user_input = user_response(
-            "\nPlease enter a number from the above options: ", 1, 4
+            "\nPlease enter a number from the above options: ", 1, 100
             )
         if user_input == 1:
             search('first_name')
