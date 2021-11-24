@@ -80,7 +80,7 @@ def menu():
         elif choice == '2':
             add_new_model()
         elif choice == '3':
-            file_creation()
+            search_models()
         elif choice == '4':
             return
         else:
@@ -126,6 +126,69 @@ def add_new_model():
         print("\nworksheet updated sucessfully")
     else:
         print("worksheet no updated")
+
+
+def print_records(records, function=None):
+    """
+    Function to print a single contact.
+    To be used in the contact search functions.
+    """
+    print("\nNow printing your contact(s)...\n")
+    for record in records:
+        print_records_in_loop(record)
+
+
+def search(choice):
+    search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
+    # Filter function used to search within the worksheet
+    print(choice)
+    print(search_by)
+    """
+    result = list(filter(
+        lambda record: record[choice] == search_by or
+        search_by in record[choice], retrieve_records()
+        ))
+    """
+    # If there are any results found
+    """
+    if len(result) != 0:
+        print("Contact found")
+        print_records(result)
+    """
+    
+
+def search_models():
+    """
+    Allows the user to search for specific models),
+    either by first name, last name, height, hair colour or gender.
+    Function will then print all matches if they are found.
+    """
+    print("\nHow would you like to search?\n\
+1. By First name\n\
+2. By Last name\n\
+3. By Height\n\
+4. By Hair Colour\n\
+5. By Age\n\
+6. By Gender\n")
+    while True:
+        user_input = user_response(
+            "\nPlease enter a number from the above options: ", 1, 4
+            )
+        if user_input == 1:
+            search('first_name')
+        elif user_input == 2:
+            search('last_name')
+        elif user_input == 3:
+            search('height')
+        elif user_input == 4:
+            search('hair_colour')
+        elif user_input == 5:
+            search('age')
+        elif user_input == 6:
+            search('gender')
+        else:
+            pass
+        return False
 
 
 if __name__ == '__main__':
