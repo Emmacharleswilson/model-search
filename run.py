@@ -131,14 +131,14 @@ def add_new_model():
 def search(choice):
     search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
     # Filter function used to search within the worksheet
-    print("Loading model/s...\n")
+    print("\nLoading model/s...\n")
     values = MODELS_WORKSHEET.findall(search_by)
-    for r in values:
-        print(", ".join(MODELS_WORKSHEET.row_values(r.row)))
-        print("\nModel/s successfully loaded")
-        break
+    print("Number of Models found:", len(values))
+    if len(values) > 0:
+        for r in values:
+            print(" ,".join(MODELS_WORKSHEET.row_values(r.row)))
     else:
-        print("No model/s match this search")
+        print("\nNo model/s match this search")
 
     """
     result = list(filter(
