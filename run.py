@@ -128,15 +128,45 @@ def add_new_model():
         print("worksheet no updated")
 
 
+def test(choice, search_by):
+    models = SHEET.worksheet("models")
+    columns = []
+    header = models.row_values(1)
+    print(header)
+    print(choice)
+    index = header.index(choice)
+    index = index + 1
+    print(index)
+    column = models.col_values(index)
+    print(column)
+    for i in range(len(column)):
+        if column[i] == search_by:
+            print("X")
+
+    """
+    for ind in range(1, 7):
+       column = models.col_values(ind)
+        columns.append(column[1:])
+    """
+    
+    print(columns)
+    return columns
+
+
 def search(choice):
     search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
     # Filter function used to search within the worksheet
     print("\nLoading model/s...\n")
+
+    print(search_by)
+    print(choice) 
+    test(choice, search_by)
+
     values = MODELS_WORKSHEET.findall(search_by)
     print("Number of Models found:", len(values))
     if len(values) > 0:
         for r in values:
-            print(" ,".join(MODELS_WORKSHEET.row_values(r.row)))
+            print(", ".join(MODELS_WORKSHEET.row_values(r.row)))
     else:
         print("\nNo model/s match this search")
 
@@ -172,17 +202,17 @@ def search_models():
             "\nPlease enter a number from the above options: ", 1, 100
             )
         if user_input == 1:
-            search('first_name')
+            search('First Name')
         elif user_input == 2:
-            search('last_name')
+            search('Last Name')
         elif user_input == 3:
-            search('height')
+            search('Height')
         elif user_input == 4:
-            search('hair_colour')
+            search('Hair Colour')
         elif user_input == 5:
-            search('age')
+            search('Age')
         elif user_input == 6:
-            search('gender')
+            search('Gender')
         else:
             pass
         return False
