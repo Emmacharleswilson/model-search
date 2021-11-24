@@ -128,25 +128,18 @@ def add_new_model():
         print("worksheet no updated")
 
 
-def print_records(records, function=None):
-    """
-    Function to print a single contact.
-    To be used in the contact search functions.
-    """
-    print("\nNow printing your contact(s)...\n")
-    for record in records:
-        print_records_in_loop(record)
-
-
 def search(choice):
     search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
     # Filter function used to search within the worksheet
-    print(choice)
-    print(search_by)
+    print("Loading model/s...\n")
     values = MODELS_WORKSHEET.findall(search_by)
     for r in values:
-        print(', '.join(MODELS_WORKSHEET.row_values(r.row)))
-    
+        print(", ".join(MODELS_WORKSHEET.row_values(r.row)))
+        print("\nModel/s successfully loaded")
+        break
+    else:
+        print("No model/s match this search")
+
     """
     result = list(filter(
         lambda record: record[choice] == search_by or
@@ -159,7 +152,7 @@ def search(choice):
         print("Contact found")
         print_records(result)
     """
-    
+
 
 def search_models():
     """
@@ -168,7 +161,7 @@ def search_models():
     Function will then print all matches if they are found.
     """
     print("\nHow would you like to search?\n\
-1. By First name\n\
+\n1. By First name\n\
 2. By Last name\n\
 3. By Height\n\
 4. By Hair Colour\n\
