@@ -219,7 +219,7 @@ def edit_search():
             break
         else:
             pass
-    
+
     while True:
         model_row = int(pyip.inputInt('Please select model: '))
         if model_row in rows_ids:
