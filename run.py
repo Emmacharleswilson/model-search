@@ -152,7 +152,7 @@ def search_display(choice, search_by):
             print(r, row)
     else:
         print("\nNo models match this search")
-    return rows_data
+    return rows_ids
 
 
 def search(choice):
@@ -160,7 +160,8 @@ def search(choice):
     # Filter function used to search within the worksheet
     print("\nLoading Models...\n")
 
-    search_display(choice, search_by)
+    rows_ids = search_display(choice, search_by)
+    return rows_ids
 
 
 def search_models():
@@ -210,14 +211,21 @@ def edit_search():
             "\nPlease enter a number from the above options: ", 1, 2
             )
         if user_input == 1:
-            search('First Name')
+            rows_ids = search('First Name')
+
             break
         elif user_input == 2:
-            search('Last Name')
+            rows_ids = search('Last Name')
             break
         else:
             pass
-    user_input = user_response("\nPlease select model: ", 1, 2)
+    
+    while True:
+        model_row = int(pyip.inputInt('Please select model: '))
+        if model_row in rows_ids:
+            break
+        else:
+            pass
 
     print("\
 \n1. First name\n\
@@ -262,14 +270,14 @@ def edit_search():
             updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
 
     print(updated_value)
-    update_model(updated_value)
+    update_model(model_row, user_input, updated_value)
     print("end")
 
 
-def update_model(updated_value):
+def update_model(model_row, model_column, updated_value):
     """
     """
-    MODELS_WORKSHEET.update_cell(2, 1, updated_value)
+    MODELS_WORKSHEET.update_cell(model_row, model_column, updated_value)
     """
     edit_model_info = [
         first_name, last_name, str(height),
