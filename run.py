@@ -57,7 +57,8 @@ def show_menu():
     """
     Function to display menu items to user
     """
-    print("\nMain menu")
+    print("\nWelcome to the Model Search application!\n")
+    print("Main menu")
     print("-----------------")
     print("1) See all Models")
     print("2) Add new Models")
@@ -74,7 +75,7 @@ def menu():
     """
     while True:
         show_menu()
-        choice = input('Enter your choice: ').lower()
+        choice = input('Please enter a choice from the above numbers: ').lower()
         if choice == '1':
             retrieve_all_models()
         elif choice == '2':
@@ -84,7 +85,7 @@ def menu():
         elif choice == '4':
             edit_search()
         else:
-            print(f'Not a correct choice: <{choice}>,try again')
+            print(f'Not a valid choice: <{choice}>,try again')
 
 
 def add_new_model():
@@ -123,9 +124,9 @@ def add_new_model():
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)
     if save == 'Yes':
         MODELS_WORKSHEET.append_row(new_model_info)
-        print("\nworksheet updated sucessfully")
+        print("\nWorksheet updated sucessfully")
     else:
-        print("worksheet no updated")
+        print("Worksheet not updated")
 
 
 def search_display(choice, search_by):
@@ -151,7 +152,7 @@ def search_display(choice, search_by):
             rows_data.append(row)
             print(r, row)
     else:
-        print("\nNo models match this search")
+        print("\nNo Models match this search")
     return rows_ids
 
 
