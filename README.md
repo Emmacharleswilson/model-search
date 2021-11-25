@@ -122,3 +122,15 @@ This is one of the choices from the main menu, if the user selects option 4, the
 After searching for a contact the user will be given the option to delete it, if they choose this option the contact is deleted from the worksheet.
 
 ![](assets/images/delete.png)
+
+### Input Validation
+
+As this programme relies heavily on users inputting information, validating these values is of the utmost importance at every step to ensure the information is viable.
+I chose to use the `pyinputplus` module as this offers built in validation. The main use of this is when the users are presented with a numbered menu, they then must input their choice, I used the following function:  
+`def user_response(message, min_value, max_value):    
+    input = pyip.inputInt(prompt=message, min=min_value, max=max_value)  
+    return input`    
+
+I added the minimum and maximum value parameters to ensure that the user is only able to enter the numbers present in the menu, if they do not then the following error message is displayed:  
+
+![](assets/images/invalid_entry1.png)
