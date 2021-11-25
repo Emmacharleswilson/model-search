@@ -40,6 +40,7 @@ def retrieve_all_models():
     print("\nNow retrieving all of your models...\n")
     for model in all_models:
         print_records_in_loop(model)
+    another_task()
 
 
 def print_records_in_loop(record):
@@ -75,7 +76,7 @@ def menu():
     """
     while True:
         show_menu()
-        choice = input('Please enter a choice from the above numbers: ').lower()
+        choice = input('Please enter a choice from the above numbers: ')
         if choice == '1':
             retrieve_all_models()
         elif choice == '2':
@@ -86,6 +87,31 @@ def menu():
             edit_search()
         else:
             print(f'Not a valid choice: <{choice}>,try again')
+
+
+def another_task():
+    """
+    Function to take users back to the
+    main menu if they have something else
+    they would like to do.
+    This is called at the end of the
+    other processes.
+    """
+    print("\nWould you like to complete another task?\n")
+    print("1. Yes, back to main menu\n\
+2. No, end programme")
+    while True:
+        user_input = user_response(
+            "\nPlease enter a number from the above options: ", 1, 2
+            )
+        if user_input == 1:
+            print("\nNow taking you back to the main menu...\n")
+            show_menu()
+            break
+        else:
+            print(
+                "Programme shutting down...\n")
+            raise SystemExit
 
 
 def add_new_model():
@@ -127,6 +153,7 @@ def add_new_model():
         print("\nWorksheet updated sucessfully")
     else:
         print("Worksheet not updated")
+    another_task()
 
 
 def search_display(choice, search_by):
@@ -146,7 +173,7 @@ def search_display(choice, search_by):
             pass
 
     if len(rows_ids) > 0:
-        print("Number of Models found:", len(rows_ids))
+        print("Number of Models found: ", len(rows_ids))
         for r in rows_ids:
             row = models.row_values(r)
             rows_data.append(row)
