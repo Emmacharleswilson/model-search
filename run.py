@@ -232,43 +232,44 @@ def edit_search():
 
     if user_input == 1:
         while True:
-            first_name = pyip.inputStr('*New First Name: ')
-            if first_name.isalpha():
+            updated_value = pyip.inputStr('*New First Name: ')
+            if updated_value.isalpha():
                 break
             else:
                 print("Enter letters only")
     if user_input == 2:
         while True:
-            last_name = pyip.inputStr('*New Last Name: ')
-            if last_name.isalpha():
+            updated_value = pyip.inputStr('*New Last Name: ')
+            if updated_value.isalpha():
                 break
         else:
             print("Enter letters only")
     if user_input == 3:
         while True:
-            height = int(pyip.inputInt('*New Height: '))
+            updated_value = int(pyip.inputInt('*New Height: '))
     if user_input == 4:
         while True:
-            hair_colour = pyip.inputStr('*New Hair Colour: ')
-            if hair_colour.isalpha():
+            updated_value = pyip.inputStr('*New Hair Colour: ')
+            if updated_value.isalpha():
                 break
             else:
                 print("Enter letters only")
     if user_input == 5:
         while True:
-            age = int(pyip.inputInt('*New Age: '))
+            updated_value = int(pyip.inputInt('*New Age: '))
     if user_input == 6:
         while True:
-            gender = pyip.inputMenu(['Male', 'Female'], numbered=True)
-    
-    update_model()
+            updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
+
+    print(updated_value)
+    update_model(updated_value)
     print("end")
 
 
-def update_model():
+def update_model(updated_value):
     """
     """
-    MODELS_WORKSHEET.update_cell(2, 1, 'David')
+    MODELS_WORKSHEET.update_cell(2, 1, updated_value)
     """
     edit_model_info = [
         first_name, last_name, str(height),
