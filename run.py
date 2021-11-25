@@ -132,24 +132,29 @@ def test(choice, search_by):
     models = SHEET.worksheet("models")
     columns = []
     header = models.row_values(1)
-    print(header)
-    print(choice)
     index = header.index(choice)
     index = index + 1
-    print(index)
     column = models.col_values(index)
-    print(column)
+    rows_print = []
     for i in range(len(column)):
         if column[i] == search_by:
-            print("X")
-
-    """
+            x = i + 1
+            rows_print.append(x)
+        else:
+            pass
+    
+    if len(rows_print) > 0:
+        print("Number of Models found:", len(rows_print))
+        for r in rows_print:
+            row = models.row_values(r)
+            print(row)
+    else:
+        print("\nNo model/s match this search")
+        """
     for ind in range(1, 7):
        column = models.col_values(ind)
         columns.append(column[1:])
     """
-    
-    print(columns)
     return columns
 
 
@@ -157,18 +162,16 @@ def search(choice):
     search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
     # Filter function used to search within the worksheet
     print("\nLoading model/s...\n")
-
-    print(search_by)
-    print(choice) 
-    test(choice, search_by)
-
+    """
     values = MODELS_WORKSHEET.findall(search_by)
-    print("Number of Models found:", len(values))
     if len(values) > 0:
         for r in values:
             print(", ".join(MODELS_WORKSHEET.row_values(r.row)))
     else:
         print("\nNo model/s match this search")
+    """
+
+    test(choice, search_by)
 
     """
     result = list(filter(
