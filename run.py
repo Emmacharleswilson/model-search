@@ -82,7 +82,7 @@ def menu():
         elif choice == '3':
             search_models()
         elif choice == '4':
-            return
+            edit_search()
         else:
             print(f'Not a correct choice: <{choice}>,try again')
 
@@ -147,7 +147,7 @@ def test(choice, search_by):
         print("Number of Models found:", len(rows_print))
         for r in rows_print:
             row = models.row_values(r)
-            print(row)
+            print(index, row)
     else:
         print("\nNo model/s match this search")
         """
@@ -202,7 +202,7 @@ def search_models():
 6. By Gender\n")
     while True:
         user_input = user_response(
-            "\nPlease enter a number from the above options: ", 1, 100
+            "\nPlease enter a number from the above options: ", 1, 6
             )
         if user_input == 1:
             search('First Name')
@@ -218,6 +218,25 @@ def search_models():
             search('Gender')
         else:
             pass
+        return False
+
+
+def edit_search():
+    """
+    Function to allow user to search models
+    by First Name and Last Name 
+    """
+    print("\nHow would you like to search?\n\
+\n1. By First name\n\
+2. By Last name\n")
+    while True:
+        user_input = user_response(
+            "\nPlease enter a number from the above options: ", 1, 2
+            )
+        if user_input == 1:
+            search('First Name')
+        elif user_input == 2:
+            search('Last Name')
         return False
 
 
