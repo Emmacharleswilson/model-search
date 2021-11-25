@@ -52,11 +52,11 @@ The features included in this programme are listed in the main menu and they can
 - If they do the model will be saved, otherwise they can go back to the main menu.
 
 ### Edit existing models:
-- From the main menu there is an option to Edit Existing Models, once the user has selected this they will first be taken to search for the model they would like to edit.
-- After the model has been found they will have the option to edit by typing Y/N
-- If they select Y they will then be able to choose which field of the model they would like to edit. 
-- They input the new information and save it.
-- The worksheet is updated with the new models information.
+- From the main menu there is an option to Edit Existing Models, once the user has selected this they will first be taken to search for the model by first name or last name.
+- The user will then be asked for the name they would like to search. 
+- If theres a match found, this will be printed to the terminal and the user will be asked to select which model they would like to edit. 
+- The user will be asked which field they would like to edit and then be asked for the new information. 
+- The new information will be saved to the spreadsheet. 
 
 ---
 ## Technologies Used
@@ -90,3 +90,35 @@ I have used several technologies that have enabled this design to work:
     - Used to store the 'Contacts' data used for the application.
 - [Pep8](http://pep8online.com/)
     - Used to test my code for any issues or errors.
+
+
+---
+## Testing
+
+### User Stories
+
+*'As a user, I want to be able to easily access all of my models at once.'*  
+This is one of the choices from the main menu, if the user selects option 1 all of the model's are printed to the terminal.
+
+![](assets/images/retrieve_contacts.png)
+
+*'As a user, I want to be able to retrieve a model's information based upon their first or last name.'*  
+This is one of the choices from the main menu, if the user selects option 2, they are taken to search their contacts by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
+
+![](assets/images/contact_search_image.png)
+
+*'As a user, I want to add new model information.'*  
+This is one of the choices from the main menu, if the user selects option 3, they are taken to add a new contact. The user is asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
+
+![](assets/images/add_contact.png)
+
+*'As a user, I want to update an existing model's information if there has been a change.'*  
+This is one of the choices from the main menu, if the user selects option 4, they are taken to search their contacts by either first name or last name. If there is a match found it is printed to the terminal and the user gets the option to edit a specific field. 
+
+![](assets/images/edit_contact.png)
+![](assets/images/edit_contact_saved.png)
+
+*'As a user, I want to be able to delete a contact entry.'*  
+After searching for a contact the user will be given the option to delete it, if they choose this option the contact is deleted from the worksheet.
+
+![](assets/images/delete.png)
