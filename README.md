@@ -58,3 +58,36 @@ The features included in this programme are listed in the main menu and they can
 - If they select Y they will then be able to choose which field of the model they would like to edit. 
 - They input the new information and save it.
 - The worksheet is updated with the new models information.
+
+---
+## Technologies Used
+
+I have used several technologies that have enabled this design to work:
+
+- [Python](https://www.python.org/)
+    - Python is the core programming language used to write all of the code in this application to make it fully functional.
+    - In addition to core Python I have used the following Python modules:
+        - [Gspread](https://docs.gspread.org/en/latest/)
+            - Used to access my google sheets document throughout the application, to access and edit data.
+        - [Google Auth](https://google-auth.readthedocs.io/en/master/)
+            - Used to provide access to the application to interact with my google sheet.
+        - [pyinputplus](https://pyinputplus.readthedocs.io/en/latest/)
+            - Used to validate all of the user inputs.
+        - [PDB](https://www.geeksforgeeks.org/debugging-python-code-using-breakpoint-and-pdb/)
+            - Used to debug my code when facing issues.
+- [GitHub](https://github.com/)
+    - Used to store code for the project after being pushed.
+- [Git](https://git-scm.com/)
+    - Used for version control by utilising the Gitpod terminal to commit to Git and Push to GitHub.
+- [Gitpod](https://www.gitpod.io/)
+    - Used as the development environment.
+- [Heroku](https://dashboard.heroku.com/apps)
+    - Used to deploy my application.
+- [Lucid](https://lucid.app/documents#/dashboard)
+    - Used to create the flowchart for the project.
+- [Grammarly](https://www.grammarly.com/)
+    - Used to fix the thousands of grammar errors across the project.
+- [Google Sheets](https://www.google.co.uk/sheets/about/)
+    - Used to store the 'Contacts' data used for the application.
+- [Pep8](http://pep8online.com/)
+    - Used to test my code for any issues or errors.
