@@ -135,29 +135,31 @@ def search_display(choice, search_by):
     index = header.index(choice)
     index = index + 1
     column = models.col_values(index)
-    rows_print = []
+    rows_ids = []
+    rows_data = []
     for i in range(len(column)):
         if column[i] == search_by:
             x = i + 1
-            rows_print.append(x)
+            rows_ids.append(x)
         else:
             pass
 
-    if len(rows_print) > 0:
-        print("Number of Models found:", len(rows_print))
-        for r in rows_print:
+    if len(rows_ids) > 0:
+        print("Number of Models found:", len(rows_ids))
+        for r in rows_ids:
             row = models.row_values(r)
-            print(index, row)
+            rows_data.append(row)
+            print(r, row)
     else:
         print("\nNo models match this search")
-    return columns
+    return rows_data
 
 
 def search(choice):
     search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
     # Filter function used to search within the worksheet
     print("\nLoading Models...\n")
-    
+
     search_display(choice, search_by)
 
 
@@ -198,7 +200,7 @@ def search_models():
 def edit_search():
     """
     Function to allow user to search models
-    by First Name and Last Name 
+    by First Name and Last Name
     """
     print("\nHow would you like to search?\n\
 \n1. By First name\n\
@@ -209,60 +211,71 @@ def edit_search():
             )
         if user_input == 1:
             search('First Name')
-            print("x")
+            break
         elif user_input == 2:
             search('Last Name')
+            break
         else:
             pass
-        user_input = user_response("\nPlease select model: ", 1, 2)
+    user_input = user_response("\nPlease select model: ", 1, 2)
 
-        print("\nHow would you like to search?\n\
-\n1. By First name\n\
-2. By Last name\n\
-3. By Height\n\
-4. By Hair Colour\n\
-5. By Age\n\
+    print("\
+\n1. First name\n\
+2. Last name\n\
+3. Height\n\
+4. Hair Colour\n\
+5. Age\n\
 6. By Gender\n")
-        user_input = user_response(
+    user_input = user_response(
             "\nWhich value would you like to change: ", 1, 6
             )
 
-        if user_input == 1:
-            while True:
-                first_name = pyip.inputStr('*New First Name: ')
+    if user_input == 1:
+        while True:
+            first_name = pyip.inputStr('*New First Name: ')
             if first_name.isalpha():
                 break
             else:
                 print("Enter letters only")
-        if user_input == 2:
-            while True:
-                last_name = pyip.inputStr('*New Last Name: ')
+    if user_input == 2:
+        while True:
+            last_name = pyip.inputStr('*New Last Name: ')
             if last_name.isalpha():
                 break
-            else:
-                print("Enter letters only")
-        if user_input == 3:
-            while True:
-                height = int(pyip.inputInt('*New Height: '))
-        if user_input == 4:
-            while True:
-                hair_colour = pyip.inputStr('*New Hair Colour: ')
+        else:
+            print("Enter letters only")
+    if user_input == 3:
+        while True:
+            height = int(pyip.inputInt('*New Height: '))
+    if user_input == 4:
+        while True:
+            hair_colour = pyip.inputStr('*New Hair Colour: ')
             if hair_colour.isalpha():
                 break
             else:
                 print("Enter letters only")
-        if user_input == 5:
-            while True:
-                age = int(pyip.inputInt('*New Age: '))
-        if user_input == 6:
-            while True:
-                gender = pyip.inputMenu(['Male', 'Female'], numbered=True)
+    if user_input == 5:
+        while True:
+            age = int(pyip.inputInt('*New Age: '))
+    if user_input == 6:
+        while True:
+            gender = pyip.inputMenu(['Male', 'Female'], numbered=True)
+    
+    update_model()
+    print("end")
 
-    new_model_info = [
+
+def update_model():
+    """
+    """
+    MODELS_WORKSHEET.update_cell(2, 1, 'David')
+    """
+    edit_model_info = [
         first_name, last_name, str(height),
         hair_colour, str(age), gender
         ]
-    print(f'The data you have entered is: <{new_model_info}>')
+
+    print(f'The data you have entered is: <{edit_model_info}>')
     print("\nWould you like to save?\n")
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)
     if save == 'Yes':
@@ -270,8 +283,7 @@ def edit_search():
         print("\nworksheet updated sucessfully")
     else:
         print("worksheet no updated")
- 
-        """
+
         if user_input == 1:
             search('New First Name')
         elif user_input == 2:
