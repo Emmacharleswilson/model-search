@@ -48,9 +48,8 @@ The features included in this programme are listed in the main menu and they can
 ### Add new models:
 - From the main menu there is an option to Add New Model.
 - Once the user has selected this option they are then asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
-- Once all fields have been entered the model is saved.
-- The models details are printed to the terminal and the user is asked if they want to edit the information.
-- If they do they will be taken to edit the contact, otherwise they can go back to the main menu.
+- Once all fields have been entered the user will be asked if they would like to save the model or not. 
+- If they do the model will be saved, otherwise they can go back to the main menu.
 
 ### Edit existing models:
 - From the main menu there is an option to Edit Existing Models, once the user has selected this they will first be taken to search for the model they would like to edit.
