@@ -13,13 +13,9 @@ To begin planning this project I started first with UX, designing the logic of t
 ### Strategy
 User Stories:
 - As a user, I want to be able to easily access all of my models at once.
-- As a user, I want to be able to retrieve a model's information based upon their first or last name.
+- As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.
 - As a user, I want to add new model information.
 - As a user, I want to update an existing model's information if there has been a change.
-- As a user, I want to be able to retrieve a model's information based upon age. 
-- As a user, I want to be able to retrieve a model's information based upon height.
-- As a user, I want to be able to retrieve a model's information based upon hair colour.
-- As a user, I want to be able to retrieve a model's information based upon gender.
 - As a user, I want to be able to delete a model.
 
 ### Structure
@@ -102,8 +98,8 @@ This is one of the choices from the main menu, if the user selects option 1 all 
 
 ![](assets/images/retrieve_contacts.png)
 
-*'As a user, I want to be able to retrieve a model's information based upon their first or last name.'*  
-This is one of the choices from the main menu, if the user selects option 2, they are taken to search their contacts by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
+*'As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.'*  
+This is one of the choices from the main menu, if the user selects option 2, they are taken to search their models by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
 
 ![](assets/images/contact_search_image.png)
 
@@ -129,7 +125,7 @@ As this programme relies heavily on users inputting information, validating thes
 I chose to use the `pyinputplus` module as this offers built in validation. The main use of this is when the users are presented with a numbered menu, they then must input their choice, I used the following function:  
 `def user_response(message, min_value, max_value):    
     input = pyip.inputInt(prompt=message, min=min_value, max=max_value)  
-    return input`    
+    return input`   
 
 I added the minimum and maximum value parameters to ensure that the user is only able to enter the numbers present in the menu, if they do not then the following error message is displayed:  
 
