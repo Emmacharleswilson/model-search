@@ -82,7 +82,7 @@ def menu():
         elif choice == '2':
             add_new_model()
         elif choice == '3':
-            search_main()
+            search_models()
         elif choice == '4':
             edit_search()
         else:
@@ -106,7 +106,6 @@ def another_task():
             )
         if user_input == 1:
             print("\nNow taking you back to the main menu...\n")
-            show_menu()
             menu()
             break
         else:
@@ -158,12 +157,9 @@ def add_new_model():
     another_task()
 
 
-def search_main():
-    search_models()
-    another_task()
-
-
 def search_display(choice, search_by):
+    """
+    """
     models = SHEET.worksheet("models")
     columns = []
     header = models.row_values(1)
@@ -178,7 +174,6 @@ def search_display(choice, search_by):
             rows_ids.append(x)
         else:
             pass
-
     if len(rows_ids) > 0:
         print("Number of Models found: ", len(rows_ids))
         for r in rows_ids:
@@ -192,13 +187,14 @@ def search_display(choice, search_by):
 
 
 def search(choice):
+    """
+    """
     if choice == 'Gender':
         search_by = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
     else:
         search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
 
         print("\nLoading Models...\n")
-
     rows_ids = search_display(choice, search_by)
     return rows_ids
 
@@ -234,8 +230,9 @@ def search_models():
             search('Gender')
         else:
             pass
+        another_task()
         return False
-
+    
 
 def edit_search():
     """
@@ -252,21 +249,18 @@ def edit_search():
             )
         if user_input == 1:
             rows_ids = search('First Name')
-
             break
         elif user_input == 2:
             rows_ids = search('Last Name')
             break
         else:
             pass
-
     while True:
         model_row = int(pyip.inputInt('Please select model: '))
         if model_row in rows_ids:
             break
         else:
             pass
-
     print("\
 \n1. First name\n\
 2. Last name\n\
@@ -277,7 +271,6 @@ def edit_search():
     user_input = user_response(
             "\nWhich value would you like to change: ", 1, 6
             )
-
     if user_input == 1:
         while True:
             updated_value = pyip.inputStr('*New First Name: ')
@@ -318,9 +311,7 @@ def edit_search():
         print("\nWorksheet updated sucessfully")
     else:
         print("Worksheet not updated")
-    
     print(updated_value)
-    print("end")
     another_task()
 
 
@@ -328,37 +319,6 @@ def update_model(model_row, model_column, updated_value):
     """
     """
     MODELS_WORKSHEET.update_cell(model_row, model_column, updated_value)
-    """
-    edit_model_info = [
-        first_name, last_name, str(height),
-        hair_colour, str(age), gender
-        ]
-
-    print(f'The data you have entered is: <{edit_model_info}>')
-    print("\nWould you like to save?\n")
-    save = pyip.inputMenu(['Yes', 'No'], numbered=True)
-    if save == 'Yes':
-        MODELS_WORKSHEET.append_row(new_model_info)
-        print("\nworksheet updated sucessfully")
-    else:
-        print("worksheet no updated")
-
-        if user_input == 1:
-            search('New First Name')
-        elif user_input == 2:
-            search('New Last Name')
-        elif user_input == 3:
-            search('New Height')
-        elif user_input == 4:
-            search('New Hair Colour')
-        elif user_input == 5:
-            search('New Age')
-        elif user_input == 6:
-            search('New Gender')
-        else:
-            pass
-        return False
-        """
 
 
 if __name__ == '__main__':
