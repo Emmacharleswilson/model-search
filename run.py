@@ -139,7 +139,7 @@ def add_new_model():
         else:
             print("Enter letters only")
     age = int(pyip.inputInt('*Age: '))
-    gender = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
+    gender = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
 
     new_model_info = [
         first_name, last_name, height,
@@ -185,9 +185,13 @@ def search_display(choice, search_by):
 
 
 def search(choice):
-    search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
-    # Filter function used to search within the worksheet
-    print("\nLoading Models...\n")
+    if choice == 'Gender':
+        search_by = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
+    else:
+        search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
+
+        # Filter function used to search within the worksheet
+        print("\nLoading Models...\n")
 
     rows_ids = search_display(choice, search_by)
     return rows_ids
@@ -293,7 +297,7 @@ def edit_search():
     if user_input == 5:
         updated_value = int(pyip.inputInt('*New Age: '))
     if user_input == 6:
-        updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
+        updated_value = pyip.inputMenu(['M', 'F'], numbered=True)
 
     print(updated_value)
     update_model(model_row, user_input, updated_value)
