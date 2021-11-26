@@ -145,7 +145,7 @@ def add_new_model():
         first_name, last_name, height,
         hair_colour, age, gender
         ]
-    
+
     print(f'The data you have entered is: <{new_model_info}>')
     print("\nWould you like to save?\n")
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)
@@ -190,7 +190,6 @@ def search(choice):
     else:
         search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
 
-        # Filter function used to search within the worksheet
         print("\nLoading Models...\n")
 
     rows_ids = search_display(choice, search_by)
@@ -236,6 +235,7 @@ def edit_search():
     Function to allow user to search models
     by First Name and Last Name
     """
+    models = SHEET.worksheet("models")
     print("\nHow would you like to search?\n\
 \n1. By First name\n\
 2. By Last name\n")
@@ -299,9 +299,22 @@ def edit_search():
     if user_input == 6:
         updated_value = pyip.inputMenu(['M', 'F'], numbered=True)
 
+    updated_model_info = models.row_values(model_row)
+    index = user_input - 1
+    updated_model_info[index] = updated_value
+
+    print(f'The updated model will be: <{updated_model_info}>')
+    print("\nWould you like to save?\n")
+    save = pyip.inputMenu(['Yes', 'No'], numbered=True)
+    if save == 'Yes':
+        update_model(model_row, user_input, updated_value)
+        print("\nWorksheet updated sucessfully")
+    else:
+        print("Worksheet not updated")
+    
     print(updated_value)
-    update_model(model_row, user_input, updated_value)
     print("end")
+    another_task()
 
 
 def update_model(model_row, model_column, updated_value):
