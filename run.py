@@ -281,8 +281,7 @@ def edit_search():
         else:
             print("Enter letters only")
     if user_input == 3:
-        while True:
-            updated_value = int(pyip.inputInt('*New Height: '))
+        updated_value = int(pyip.inputInt('*New Height: '))
     if user_input == 4:
         while True:
             updated_value = pyip.inputStr('*New Hair Colour: ')
@@ -291,11 +290,9 @@ def edit_search():
             else:
                 print("Enter letters only")
     if user_input == 5:
-        while True:
-            updated_value = int(pyip.inputInt('*New Age: '))
+        updated_value = int(pyip.inputInt('*New Age: '))
     if user_input == 6:
-        while True:
-            updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
+        updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
 
     print(updated_value)
     update_model(model_row, user_input, updated_value)
