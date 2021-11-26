@@ -142,9 +142,10 @@ def add_new_model():
     gender = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
 
     new_model_info = [
-        first_name, last_name, str(height),
-        hair_colour, str(age), gender
+        first_name, last_name, height,
+        hair_colour, age, gender
         ]
+    
     print(f'The data you have entered is: <{new_model_info}>')
     print("\nWould you like to save?\n")
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)
