@@ -82,7 +82,7 @@ def menu():
         elif choice == '2':
             add_new_model()
         elif choice == '3':
-            search_models()
+            search_main()
         elif choice == '4':
             edit_search()
         else:
@@ -107,6 +107,7 @@ def another_task():
         if user_input == 1:
             print("\nNow taking you back to the main menu...\n")
             show_menu()
+            menu()
             break
         else:
             print(
@@ -157,6 +158,11 @@ def add_new_model():
     another_task()
 
 
+def search_main():
+    search_models()
+    another_task()
+
+
 def search_display(choice, search_by):
     models = SHEET.worksheet("models")
     columns = []
@@ -181,6 +187,7 @@ def search_display(choice, search_by):
             print(r, row)
     else:
         print("\nNo Models match this search")
+        another_task()
     return rows_ids
 
 
