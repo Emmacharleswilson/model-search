@@ -56,7 +56,8 @@ def print_records_in_loop(record):
 
 def show_menu():
     """
-    Function to display menu items to user
+    Function to display menu items to user.
+    This function is called from the menu function.
     """
     print("\nWelcome to the Model Search application!\n")
     print("Main menu")
@@ -116,7 +117,9 @@ def another_task():
 
 def add_new_model():
     """
-    Allows user to add new model information
+    Function to allow users to enter a new model's
+    information. If the user tries to enter
+    invalid characters, they will be alerted.
     """
     while True:
         first_name = pyip.inputStr('*First Name: ')
@@ -161,7 +164,6 @@ def search_display(choice, search_by):
     """
     """
     models = SHEET.worksheet("models")
-    columns = []
     header = models.row_values(1)
     index = header.index(choice)
     index = index + 1
@@ -232,7 +234,7 @@ def search_models():
             pass
         another_task()
         return False
-    
+
 
 def edit_search():
     """
@@ -256,7 +258,8 @@ def edit_search():
         else:
             pass
     while True:
-        model_row = int(pyip.inputInt('Please select model: '))
+        model_row = int(pyip.inputInt('\nPlease enter the number that is \
+next to the model you would like to select: '))
         if model_row in rows_ids:
             break
         else:
