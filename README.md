@@ -2,7 +2,7 @@
 
 ![](assets/images/)
 
-[Live application can be found here]()
+[Live application can be found here](https://model-search.herokuapp.com/)
 
 This is a command-line-interface application designed for a user to access models, retrieve models by a certain catagory, edit/delete existing models & add new models. This project has been designed for educational purposes and uses the Code Institutes mock terminal to run.
 
@@ -96,23 +96,23 @@ I have used several technologies that have enabled this design to work:
 *'As a user, I want to be able to easily access all of my models at once.'*  
 This is one of the choices from the main menu, if the user selects option 1 all of the model's are printed to the terminal.
 
-![](assets/images/retrieve_contacts.png)
+![](assets/images/receive_all.png)
 
 *'As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.'*  
-This is one of the choices from the main menu, if the user selects option 2, they are taken to search their models by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
+This is one of the choices from the main menu, if the user selects option 3, they are taken to search their models by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
 
-![](assets/images/contact_search_image.png)
+![](assets/images/search_by.png)
 
 *'As a user, I want to add new model information.'*  
-This is one of the choices from the main menu, if the user selects option 3, they are taken to add a new contact. The user is asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
+This is one of the choices from the main menu, if the user selects option 2, they are taken to add a new contact. The user is asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
 
-![](assets/images/add_contact.png)
+![](assets/images/add.png)
 
 *'As a user, I want to update an existing model's information if there has been a change.'*  
 This is one of the choices from the main menu, if the user selects option 4, they are taken to search their contacts by either first name or last name. If there is a match found it is printed to the terminal and the user gets the option to edit a specific field. 
 
-![](assets/images/edit_contact.png)
-![](assets/images/edit_contact_saved.png)
+![](assets/images/edit_search.png)
+![](assets/images/edit_save.png)
 
 *'As a user, I want to be able to delete a contact entry.'*  
 After searching for a contact the user will be given the option to delete it, if they choose this option the contact is deleted from the worksheet.
@@ -130,3 +130,8 @@ I chose to use the `pyinputplus` module as this offers built in validation. The 
 I added the minimum and maximum value parameters to ensure that the user is only able to enter the numbers present in the menu, if they do not then the following error message is displayed:  
 
 ![](assets/images/invalid_entry1.png)
+
+I also added a string or integer validation to ensure the user enters letters or numbers in the appropriate fields. If they do not the following error messages are displayed. 
+
+![](assets/images/invalid_entry2.png)
+![](assets/images/invalid_entry3.png)

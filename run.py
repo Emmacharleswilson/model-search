@@ -319,7 +319,7 @@ next to the model you would like to select: '))
         print("\nWorksheet updated sucessfully")
     else:
         print("Worksheet not updated")
-    print(updated_value)
+        print(updated_value)
     another_task()
 
 
