@@ -142,7 +142,7 @@ def add_new_model():
         else:
             print("Enter letters only")
     age = int(pyip.inputInt('*Age: '))
-    gender = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
+    gender = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
     new_model_info = [
         first_name, last_name, height,
         hair_colour, age, gender
@@ -197,7 +197,7 @@ def search(choice):
     they would like to search.
     """
     if choice == 'Gender':
-        search_by = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
+        search_by = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
     else:
         search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
         print("\nLoading Models...\n")
@@ -305,7 +305,7 @@ next to the model you would like to select: '))
     if user_input == 5:
         updated_value = int(pyip.inputInt('*New Age: '))
     if user_input == 6:
-        updated_value = pyip.inputMenu(['M', 'F'], numbered=True)
+        updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
 
     updated_model_info = models.row_values(model_row)
     index = user_input - 1
