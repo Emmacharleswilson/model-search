@@ -143,12 +143,10 @@ def add_new_model():
             print("Enter letters only")
     age = int(pyip.inputInt('*Age: '))
     gender = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
-
     new_model_info = [
         first_name, last_name, height,
         hair_colour, age, gender
         ]
-
     print(f'The data you have entered is: <{new_model_info}>')
     print("\nWould you like to save?\n")
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)
@@ -162,6 +160,9 @@ def add_new_model():
 
 def search_display(choice, search_by):
     """
+    Function to display search results.
+    Called in the search function and used
+    in the edit_search function.
     """
     models = SHEET.worksheet("models")
     header = models.row_values(1)
@@ -190,12 +191,15 @@ def search_display(choice, search_by):
 
 def search(choice):
     """
+    Function to display gender choices to
+    the user if they would like to search by gender,
+    and display an input field for the user to choose how
+    they would like to search.
     """
     if choice == 'Gender':
         search_by = pyip.inputMenu(['M', 'F', 'Other'], numbered=True)
     else:
         search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
-
         print("\nLoading Models...\n")
     rows_ids = search_display(choice, search_by)
     return rows_ids
@@ -205,7 +209,8 @@ def search_models():
     """
     Allows the user to search for specific models),
     either by first name, last name, height, hair colour or gender.
-    Function will then print all matches if they are found.
+    The search function is then called to display the results
+    to the user.
     """
     print("\nHow would you like to search?\n\
 \n1. By First name\n\
@@ -239,7 +244,7 @@ def search_models():
 def edit_search():
     """
     Function to allow user to search models
-    by First Name and Last Name
+    by First Name or Last Name.
     """
     models = SHEET.worksheet("models")
     print("\nHow would you like to search?\n\
@@ -320,6 +325,8 @@ next to the model you would like to select: '))
 
 def update_model(model_row, model_column, updated_value):
     """
+    Function to update the google spreadsheet
+    when the user updates a model's information
     """
     MODELS_WORKSHEET.update_cell(model_row, model_column, updated_value)
 
