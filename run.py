@@ -173,18 +173,18 @@ def search_display(choice, search_by):
     rows_data = []
     for i in range(len(column)):
         if column[i] == search_by:
-            x = i + 1
-            rows_ids.append(x)
+            row_number = i + 1
+            rows_ids.append(row_number)
         else:
             pass
     if len(rows_ids) > 0:
         print("Number of Models found: ", len(rows_ids))
-        for r in rows_ids:
-            row = models.row_values(r)
+        for row_number in rows_ids:
+            row = models.row_values(row_number)
             rows_data.append(row)
-            print(r, row)
+            print(row_number, row)
     else:
-        print("\nNo Models match this search")
+        print("\nNo Models found")
         another_task()
     return rows_ids
 
@@ -213,7 +213,7 @@ def search_models():
     to the user.
     """
     print("\nHow would you like to search?\n\
-\n1. By First name\n\
+    \n1. By First name\n\
 2. By Last name\n\
 3. By Height\n\
 4. By Hair Colour\n\
@@ -248,7 +248,7 @@ def edit_search():
     """
     models = SHEET.worksheet("models")
     print("\nHow would you like to search?\n\
-\n1. By First name\n\
+    \n1. By First name\n\
 2. By Last name\n")
     while True:
         user_input = user_response(
@@ -270,12 +270,12 @@ next to the model you would like to select: '))
         else:
             pass
     print("\
-\n1. First name\n\
+    \n1. First name\n\
 2. Last name\n\
 3. Height\n\
 4. Hair Colour\n\
 5. Age\n\
-6. By Gender\n")
+6. Gender\n")
     user_input = user_response(
             "\nWhich value would you like to change: ", 1, 6
             )
