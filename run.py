@@ -310,7 +310,6 @@ next to the model you would like to select: '))
     updated_model_info = models.row_values(model_row)
     index = user_input - 1
     updated_model_info[index] = updated_value
-
     print(f'The updated model will be: <{updated_model_info}>')
     print("\nWould you like to save?\n")
     save = pyip.inputMenu(['Yes', 'No'], numbered=True)

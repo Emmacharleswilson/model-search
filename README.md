@@ -1,10 +1,10 @@
 # Model Search
 
-![](assets/images/)
+![](assets/images/amiresponsive.png)
 
 [Live application can be found here](https://model-search.herokuapp.com/)
 
-This is a command-line-interface application designed for a user to access models, retrieve models by a certain catagory, edit/delete existing models & add new models. This project has been designed for educational purposes and uses the Code Institutes mock terminal to run.
+This is a command-line-interface application designed for a user to access models, retrieve models by a certain catagory, edit existing models & add new models. This project has been designed for educational purposes and uses the Code Institutes mock terminal to run.
 
 ---
 ## UX
@@ -16,7 +16,6 @@ User Stories:
 - As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.
 - As a user, I want to add new model information.
 - As a user, I want to update an existing model's information if there has been a change.
-- As a user, I want to be able to delete a model.
 
 ### Structure
 ![Flowchart of Python logic](assets/images/flowchart.png)
@@ -28,6 +27,7 @@ As you can see from the flowchart above the logic has been based around the four
 The features included in this programme are listed in the main menu and they can be seen below:
 
 ![](assets/images/main_menu.png)
+
 ### Retrieve all models:
 - From the main menu there is an option to Retrieve All Models, once the user has selected this all of the models will be printed to the terminal.
 
@@ -98,15 +98,15 @@ This is one of the choices from the main menu, if the user selects option 1 all 
 
 ![](assets/images/receive_all.png)
 
-*'As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.'*  
-This is one of the choices from the main menu, if the user selects option 3, they are taken to search their models by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
-
-![](assets/images/search_by.png)
-
 *'As a user, I want to add new model information.'*  
 This is one of the choices from the main menu, if the user selects option 2, they are taken to add a new contact. The user is asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
 
 ![](assets/images/add.png)
+
+*'As a user, I want to be able to retrieve a models information based upon their first name, last name, height, hair colour, age or gender.'*  
+This is one of the choices from the main menu, if the user selects option 3, they are taken to search their models by either name/height/hair colour/age/gender. If there is a match found it is printed to the terminal. 
+
+![](assets/images/search_by.png)
 
 *'As a user, I want to update an existing model's information if there has been a change.'*  
 This is one of the choices from the main menu, if the user selects option 4, they are taken to search their contacts by either first name or last name. If there is a match found it is printed to the terminal and the user gets the option to edit a specific field. 
@@ -123,9 +123,9 @@ After searching for a contact the user will be given the option to delete it, if
 
 As this programme relies heavily on users inputting information, validating these values is of the utmost importance at every step to ensure the information is viable.
 I chose to use the `pyinputplus` module as this offers built in validation. The main use of this is when the users are presented with a numbered menu, they then must input their choice, I used the following function:  
-`def user_response(message, min_value, max_value):    
-    input = pyip.inputInt(prompt=message, min=min_value, max=max_value)  
-    return input`   
+`def user_response(message, min_value, max_value):
+    input = pyip.inputInt(prompt=message, min=min_value, max=max_value)
+    return input`
 
 I added the minimum and maximum value parameters to ensure that the user is only able to enter the numbers present in the menu, if they do not then the following error message is displayed:  
 
@@ -151,7 +151,7 @@ The master branch of this repository has been used for the deployed version of t
 
 ### Using Github & Gitpod
 
-To deploy my command-line interface application, I had to use the [Code Institute Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template), as this enables the application to be properly viewed on Heroku using a mock terminal. 
+To deploy my command-line interface application, I had to use the [Code Institute Python Essentials Template](https://github.com/Code-Institute-Org/python-essentials-template), as this enables the application to be properly viewed on Heroku using a mock terminal.
 
 - Click the `Use This Template` button.
 - Add a repository name and brief description.
@@ -216,9 +216,9 @@ In the Deploy tab:
 ## Credits
 
 I used the following forum to help me design my main menu (https://python-forum.io/thread-22341.html). 
-I sourced my return function from Daisy Gunn's Contact Book (https://github.com/daisygunn/my-contact-book) and also used this as a guideline when creating my validation functions using pyinputplus, retrieve all model's function and add new model function. 
+I sourced my another_task function from Daisy Gunn's Contact Book (https://github.com/daisygunn/my-contact-book) and also used this as a guideline when creating my validation functions using pyinputplus, retrieve all model's function and add new model function. 
 
-Along with this is also used (https://automatetheboringstuff.com/2e/chapter8/) to help me with my validation using pyinputplus. 
+Along with this I also used (https://automatetheboringstuff.com/2e/chapter8/) to help me with my validation using pyinputplus. 
 
 All other code has been written by me. 
 
