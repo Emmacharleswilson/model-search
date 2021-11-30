@@ -12,7 +12,7 @@ To begin planning this project I started first with UX, designing the logic of t
 
 ### Strategy
 User Stories:
-- As a user, I want to be able to easily access all of my models at once.
+- As a user, I want to be able to easily access all of my model's at once.
 - As a user, I want to be able to retrieve a model's information based upon their first name, last name, height, hair colour, age or gender.
 - As a user, I want to add new model information.
 - As a user, I want to update an existing model's information if there has been a change.
@@ -20,7 +20,7 @@ User Stories:
 ### Structure
 ![Flowchart of Python logic](assets/images/flowchart.png)
 
-As you can see from the flowchart above the logic has been based around the four key user options, retrieving all models, adding models & editing existing models, and searching for models by specific catagory. Each path will take the user back to the beginning once finished.
+As you can see from the flowchart above the logic has been based around the four key user options, retrieving all model's, adding model's & editing existing model's, and searching for model's by specific catagory. Each path will take the user back to the beginning once finished.
 
 ---
 ## Features
@@ -138,11 +138,9 @@ I also added a string or integer validation to ensure the user enters letters or
 
 ### Bugs and Fixes
 
-![](assets/images/numbers_with_0.png)
-
 In addition to my own testing of the programme I passed my code through the [Pep8](http://pep8online.com/checkresult) online validator which passed through with 0 issues:
 
-![](assets/images/pep8_validation.png)
+![](assets/images/pep8.png)
 
 ---
 ## Deployment
