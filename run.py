@@ -39,11 +39,11 @@ def retrieve_all_models():
     all_models = retrieve_records()
     print("\nNow retrieving all of your models...\n")
     for model in all_models:
-        print_records_in_loop(model)
+        print_record(model)
     another_task()
 
 
-def print_records_in_loop(record):
+def print_record(record):
     """
     Function to loop through all records passed
     as a parameter and print the details in a
@@ -52,67 +52,6 @@ def print_records_in_loop(record):
     for key, value in record.items():
         print(f"{key}: {value}")
     print("\n")
-
-
-def show_menu():
-    """
-    Function to display menu items to user.
-    This function is called from the menu function.
-    """
-    print("\nWelcome to the Model Search application!\n")
-    print("Main menu")
-    print("-----------------")
-    print("1) See all Models")
-    print("2) Add new Models")
-    print("3) Search")
-    print("4) Edit Models\n")
-
-
-def menu():
-    """
-    User selects which task they would like to do, uses their input and runs
-    elif loop to trigger the next process.
-    If an invalid choice is input then the programme
-    will alert user and ask for another choice.
-    """
-    while True:
-        show_menu()
-        choice = input('Please enter a choice from the above numbers: ')
-        if choice == '1':
-            retrieve_all_models()
-        elif choice == '2':
-            add_new_model()
-        elif choice == '3':
-            search_models()
-        elif choice == '4':
-            edit_search()
-        else:
-            print(f'Not a valid choice: <{choice}>,try again')
-
-
-def another_task():
-    """
-    Function to take users back to the
-    main menu if they have something else
-    they would like to do.
-    This is called at the end of the
-    other processes.
-    """
-    print("\nWould you like to complete another task?\n")
-    print("1. Yes, back to main menu\n\
-2. No, end programme")
-    while True:
-        user_input = user_response(
-            "\nPlease enter a number from the above options: ", 1, 2
-            )
-        if user_input == 1:
-            print("\nNow taking you back to the main menu...\n")
-            menu()
-            break
-        else:
-            print(
-                "Programme shutting down...\n")
-            raise SystemExit
 
 
 def add_new_model():
@@ -328,6 +267,67 @@ def update_model(model_row, model_column, updated_value):
     when the user updates a model's information
     """
     MODELS_WORKSHEET.update_cell(model_row, model_column, updated_value)
+
+
+def another_task():
+    """
+    Function to take users back to the
+    main menu if they have something else
+    they would like to do.
+    This is called at the end of the
+    other processes.
+    """
+    print("\nWould you like to complete another task?\n")
+    print("1. Yes, back to main menu\n\
+2. No, end programme")
+    while True:
+        user_input = user_response(
+            "\nPlease enter a number from the above options: ", 1, 2
+            )
+        if user_input == 1:
+            print("\nNow taking you back to the main menu...\n")
+            menu()
+            break
+        else:
+            print(
+                "Programme shutting down...\n")
+            raise SystemExit
+
+
+def show_menu():
+    """
+    Function to display menu items to user.
+    This function is called from the menu function.
+    """
+    print("\nWelcome to the Model Search application!\n")
+    print("Main menu")
+    print("-----------------")
+    print("1) See all Models")
+    print("2) Add new Models")
+    print("3) Search")
+    print("4) Edit Models\n")
+
+
+def menu():
+    """
+    User selects which task they would like to do, uses their input and runs
+    elif loop to trigger the next process.
+    If an invalid choice is input then the programme
+    will alert user and ask for another choice.
+    """
+    while True:
+        show_menu()
+        choice = input('Please enter a choice from the above numbers: ')
+        if choice == '1':
+            retrieve_all_models()
+        elif choice == '2':
+            add_new_model()
+        elif choice == '3':
+            search_models()
+        elif choice == '4':
+            edit_search()
+        else:
+            print(f'Not a valid choice: <{choice}>,try again')
 
 
 if __name__ == '__main__':
