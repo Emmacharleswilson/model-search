@@ -254,8 +254,7 @@ next to the model you would like to select: '))
         update_model(model_row, user_input, updated_value)
         print("\nWorksheet updated sucessfully")
     else:
-        print("Worksheet not updated")
-        print(updated_value)
+        print("\nWorksheet not updated")
     another_task()
 
 

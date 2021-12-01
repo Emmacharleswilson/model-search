@@ -114,10 +114,6 @@ This is one of the choices from the main menu, if the user selects option 4, the
 ![](assets/images/edit_search.png)
 ![](assets/images/edit_save.png)
 
-*'As a user, I want to be able to delete a contact entry.'*  
-After searching for a contact the user will be given the option to delete it, if they choose this option the contact is deleted from the worksheet.
-
-![](assets/images/delete.png)
 
 ### Input Validation
 
@@ -142,7 +138,8 @@ In addition to my own testing of the programme I passed my code through the [Pep
 
 ![](assets/images/pep8.png)
 
----
+I didn't experience any bugs while creating this application, however in the future I would like to include a delete option and improve the readability and functionality of my code with better uses of classes. 
+
 ## Deployment
 
 The master branch of this repository has been used for the deployed version of this application.
