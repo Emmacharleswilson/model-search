@@ -4,11 +4,11 @@
 
 [Live application can be found here](https://model-search.herokuapp.com/)
 
-This is a command-line-interface application designed for a user to access models, retrieve models by a certain catagory, edit existing models & add new models. This project has been designed for educational purposes and uses the Code Institutes mock terminal to run.
+This is a command-line interface application designed for a user to access models, retrieve models by a certain category, edit existing models & add new models. This project has been designed for educational purposes and uses the Code Institutes mock terminal to run.
 
 ---
 ## UX
-To begin planning this project I started first with UX, designing the logic of the programme based upon the user stories. As this is a command-line application there is no design featured as HTML & CSS have not been used. 
+To begin planning this project I started first with UX, designing the logic of the programme based upon the user stories. As this is a command-line application there is no design featured as HTML & CSS has not been used. 
 
 ### Strategy
 User Stories:
@@ -20,7 +20,7 @@ User Stories:
 ### Structure
 ![Flowchart of Python logic](assets/images/flowchart.png)
 
-As you can see from the flowchart above the logic has been based around the four key user options, retrieving all model's, adding model's & editing existing model's, and searching for model's by specific catagory. Each path will take the user back to the beginning once finished.
+As you can see from the flowchart above the logic has been based around the four key user options, retrieving all model's, adding model's & editing existing model's, and searching for models by specific category. Each path will take the user back to the beginning once finished.
 
 ---
 ## Features
@@ -45,12 +45,12 @@ The features included in this programme are listed in the main menu and they can
 - From the main menu there is an option to Add New Model.
 - Once the user has selected this option they are then asked to input a value for First Name, Last Name, Height, Hair Colour, Age, Gender. 
 - Once all fields have been entered the user will be asked if they would like to save the model or not. 
-- If they do the model will be saved, otherwise they can go back to the main menu.
+- If they do the model will be saved, otherwise, they can go back to the main menu.
 
 ### Edit existing models:
 - From the main menu there is an option to Edit Existing Models, once the user has selected this they will first be taken to search for the model by first name or last name.
 - The user will then be asked for the name they would like to search. 
-- If theres a match found, this will be printed to the terminal and the user will be asked to select which model they would like to edit. 
+- If there's a match found, this will be printed to the terminal and the user will be asked to select which model they would like to edit. 
 - The user will be asked which field they would like to edit and then be asked for the new information. 
 - The new information will be saved to the spreadsheet. 
 
@@ -94,7 +94,7 @@ I have used several technologies that have enabled this design to work:
 ### User Stories
 
 *'As a user, I want to be able to easily access all of my models at once.'*  
-This is one of the choices from the main menu, if the user selects option 1 all of the model's are printed to the terminal.
+This is one of the choices from the main menu, if the user selects option 1 all of the models are printed to the terminal.
 
 ![](assets/images/receive_all.png)
 
@@ -118,7 +118,7 @@ This is one of the choices from the main menu, if the user selects option 4, the
 ### Input Validation
 
 As this programme relies heavily on users inputting information, validating these values is of the utmost importance at every step to ensure the information is viable.
-I chose to use the `pyinputplus` module as this offers built in validation. The main use of this is when the users are presented with a numbered menu, they then must input their choice, I used the following function:  
+I chose to use the `pyinputplus` module as this offers built-in validation. The main use of this is when the users are presented with a numbered menu, they then must input their choice, I used the following function:  
 `def user_response(message, min_value, max_value):
     input = pyip.inputInt(prompt=message, min=min_value, max=max_value)
     return input`
@@ -140,6 +140,7 @@ In addition to my own testing of the programme I passed my code through the [Pep
 
 I didn't experience any bugs while creating this application, however in the future I would like to include a delete option and improve the readability and functionality of my code with better uses of classes. 
 
+---
 ## Deployment
 
 The master branch of this repository has been used for the deployed version of this application.
@@ -211,6 +212,7 @@ In the Deploy tab:
 ## Credits
 
 I used the following forum to help me design my main menu (https://python-forum.io/thread-22341.html). 
+
 I sourced my another_task function from Daisy Gunn's Contact Book (https://github.com/daisygunn/my-contact-book) and also used this as a guideline when creating my validation functions using pyinputplus, retrieve all model's function and add new model function. 
 
 Along with this I also used (https://automatetheboringstuff.com/2e/chapter8/) to help me with my validation using pyinputplus. 
