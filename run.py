@@ -107,12 +107,15 @@ def search_display(choice, search_by):
     header = models.row_values(1)
     index = header.index(choice)
     index = index + 1
+    # incrementing list index by 1 to get the correct column number selected
     column = models.col_values(index)
     rows_ids = []
     rows_data = []
     for i in range(len(column)):
         if column[i] == search_by:
             row_number = i + 1
+            # incrementing list index by 1 to get
+            # the correct row number selected
             rows_ids.append(row_number)
         else:
             pass
