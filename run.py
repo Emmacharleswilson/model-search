@@ -130,13 +130,13 @@ def search_display(choice, search_by):
 
 def search(choice):
     """
-    Function to display gender choices to
-    the user if they would like to search by gender,
-    and display an input field for the user to choose how
-    they would like to search.
+    Function to display search choices to user.
+    If user selects gender this will display an option
+    menu to avoid confusion.
     """
     if choice == 'Gender':
         search_by = pyip.inputMenu(['Male', 'Female', 'Other'], numbered=True)
+        print("\nLoading Models...\n")
     else:
         search_by = pyip.inputStr(f'\nEnter {choice}: ').capitalize()
         print("\nLoading Models...\n")
@@ -174,8 +174,6 @@ def search_models():
             search('Age')
         elif user_input == 6:
             search('Gender')
-        else:
-            pass
         another_task()
         return False
 
@@ -220,29 +218,29 @@ next to the model you would like to select: '))
             )
     if user_input == 1:
         while True:
-            updated_value = pyip.inputStr('*New First Name: ')
+            updated_value = pyip.inputStr('\n*New First Name: ')
             if updated_value.isalpha():
                 break
             else:
                 print("Enter letters only")
     if user_input == 2:
         while True:
-            updated_value = pyip.inputStr('*New Last Name: ')
+            updated_value = pyip.inputStr('\n*New Last Name: ')
             if updated_value.isalpha():
                 break
         else:
             print("Enter letters only")
     if user_input == 3:
-        updated_value = int(pyip.inputInt('*New Height: '))
+        updated_value = int(pyip.inputInt('\n*New Height: '))
     if user_input == 4:
         while True:
-            updated_value = pyip.inputStr('*New Hair Colour: ')
+            updated_value = pyip.inputStr('\n*New Hair Colour: ')
             if updated_value.isalpha():
                 break
             else:
                 print("Enter letters only")
     if user_input == 5:
-        updated_value = int(pyip.inputInt('*New Age: '))
+        updated_value = int(pyip.inputInt('\n*New Age: '))
     if user_input == 6:
         updated_value = pyip.inputMenu(['Male', 'Female'], numbered=True)
 
